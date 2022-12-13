@@ -1,11 +1,22 @@
 const div = document.createElement("div");
+const summer = ["#0dafae", "#008284", "#094b4b", "#e8c4be", "#ac8885"];
+
 const graph = document.querySelector(".board");
 const button16 = document.getElementById("16squares");
+const button32 = document.getElementById("32squares");
+const button8 = document.getElementById("8squares");
+const button100 = document.getElementById("100squares");
+const buttonsummer = document.getElementById("summerVibe");
+const colorpicker = document.getElementById("colorpicker");
+
+let pickedcolor = "#000000";
 let isDown = false;
+let summerize = false;
 
 
 
-const divider = 1;
+
+let divider = 1;
 
 
     div.style.maxWidth = 700 / divider + "px";
@@ -27,29 +38,76 @@ const divider = 1;
         })
 
        button16.addEventListener("click", e = () => {
+        divider = 16;
+        changeGridSize();
         
-        graph.removeChild(graph.lastChild);
-        document.documentElement.style.setProperty("--grid-size", "16");
-        graph.classList.add("grid16x16");
-        let i = 0;
+       })
+       button32.addEventListener("click", e = () => {
+        divider = 32;
+        changeGridSize();
         
-        for(let i = 0; i < 256; i++){
-
-            let div = document.createElement("div");
-             
-            
-            div.addEventListener("mouseover", e = () => {
-
-                if(isDown == true){
-                div.style.backgroundColor = "black";
-                }
-                
-            })
-            graph.appendChild(div);
-            
-        }
        })
 
+       button8.addEventListener("click", e = () => {
+        divider = 8;
+        changeGridSize();
+        
+       })
+
+       button100.addEventListener("click", e = () => {
+        divider = 100;
+        changeGridSize();
+        
+       })
+
+       buttonsummer.addEventListener("click", e = () => {
+        summerize = true;
+        
+
+       })
+
+       colorpicker.addEventListener("change", (e) => {
+        summerize = false;
+        pickedcolor = e.target.value;
+
+       } )
+
+       
+       
+
+
+function changeGridSize(){
+    while(graph.firstChild){
+        graph.removeChild(graph.firstChild);
+    }
+    document.documentElement.style.setProperty("--grid-size", divider);
+    
+    let i = 0;
+    
+    for(let i = 0; i < divider * divider; i++){
+
+        let div = document.createElement("div");
+         div.setAttribute("draggable", false);
+        
+        div.addEventListener("mouseover", e = () => {
+
+            if(isDown == true){
+                if(summerize == true){
+                    console.log(Math.floor(Math.random() * 4));
+                    div.style.backgroundColor = summer[Math.floor(Math.random() * 4)];
+                }
+                else {
+                    div.style.backgroundColor = pickedcolor;
+                }
+           
+            }
+            
+        })
+        graph.appendChild(div);
+        
+    }
+
+}
 
     
         console.log(graph);

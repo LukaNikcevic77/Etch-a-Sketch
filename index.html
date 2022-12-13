@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" draggable="false">
+<html lang="en">
 <head>
     <link rel="stylesheet" href="/style.css">
     <script src="javascript.js" type="text/javascript" defer></script>
@@ -8,15 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-A-Sketch-Luka-Nikcevic</title>
 </head>
-<body>
+<body ondragstart="return false;" ondrop="return false;">
     <h1>Draw something nice!</h1>
     <div class="grid">
         <div class="left-side">
             
                 <button id="16squares">16px</button>
-            
-           
-                <button class="32px">32px</button>
+                <button id="8squares">8px</button>
+                <button id="32squares">32px</button>
+                <button id="100squares">100px</button>
+                <input type="color" value="#000000" id="colorpicker">
+                <button id="summerVibe">Summer</button>
             
         </div>
         
