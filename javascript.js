@@ -8,6 +8,8 @@ const button8 = document.getElementById("8squares");
 const button100 = document.getElementById("100squares");
 const buttonsummer = document.getElementById("summerVibe");
 const colorpicker = document.getElementById("colorpicker");
+const sizemenu = document.getElementById("menu");
+
 
 let pickedcolor = "#000000";
 let isDown = false;
@@ -16,13 +18,15 @@ let summerize = false;
 
 
 
-let divider = 1;
+let divider = 4;
 
 
     div.style.maxWidth = 700 / divider + "px";
     div.style.minWidth = 700 / divider + "px";
     div.style.maxHeight = 700 / divider + "px";
     div.style.minWidth = 700 / divider + "px";
+
+changeGridSize();
 
         document.addEventListener("mousedown", e = () => {
             isDown = true;
@@ -32,33 +36,7 @@ let divider = 1;
             isDown = false;
         })
 
-        div.addEventListener("click", e = () => {
-
-            div.style.backgroundColor = "black";
-        })
-
-       button16.addEventListener("click", e = () => {
-        divider = 16;
-        changeGridSize();
         
-       })
-       button32.addEventListener("click", e = () => {
-        divider = 32;
-        changeGridSize();
-        
-       })
-
-       button8.addEventListener("click", e = () => {
-        divider = 8;
-        changeGridSize();
-        
-       })
-
-       button100.addEventListener("click", e = () => {
-        divider = 100;
-        changeGridSize();
-        
-       })
 
        buttonsummer.addEventListener("click", e = () => {
         summerize = true;
@@ -71,6 +49,12 @@ let divider = 1;
         pickedcolor = e.target.value;
 
        } )
+
+       sizemenu.addEventListener("change", (e) => {
+        divider = e.target.value;
+        console.log(e.target.value);
+        changeGridSize();
+       })
 
        
        
@@ -88,7 +72,15 @@ function changeGridSize(){
 
         let div = document.createElement("div");
          div.setAttribute("draggable", false);
-        
+        div.addEventListener("click", e  = () => {
+            if(summerize == true){
+                console.log(Math.floor(Math.random() * 4));
+                    div.style.backgroundColor = summer[Math.floor(Math.random() * 4)];
+            }
+            else {
+                div.style.backgroundColor = pickedcolor;
+            }
+        })
         div.addEventListener("mouseover", e = () => {
 
             if(isDown == true){
@@ -110,8 +102,7 @@ function changeGridSize(){
 }
 
     
-        console.log(graph);
-        graph.appendChild(div);
+       
         
         
    
