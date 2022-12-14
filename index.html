@@ -12,22 +12,23 @@
     <h1>Draw something nice!</h1>
     <div class="grid">
         <div class="left-side">
-            
-                <button id="16squares">16px</button>
-                <button id="8squares">8px</button>
-                <button id="32squares">32px</button>
-                <button id="100squares">100px</button>
-                <input type="color" value="#000000" id="colorpicker">
-                <button id="summerVibe">Summer</button>
-                <label for="menu">
-                    <select name="menu" id="menu">
-                        <option value="4">4x4</option>
-                        <option value="8">8x8</option>
-                        <option value="16">16x16</option>
-                        <option value="32">32x32</option>
-                        <option value="64">64x64</option>
-                        <option value="100">100x100</option>
-                    </select>
+            <span class="menu-name"><p class="menu-text">Menu</p></span>
+            <span><h2 class="menuText">Select the size: </h2></span>
+                
+            <select name="menu" id="menu">
+                <option value="4">4x4</option>
+                <option value="8">8x8</option>
+                <option value="16">16x16</option>
+                <option value="32">32x32</option>
+                <option value="64">64x64</option>
+                <option value="100">100x100</option>
+            </select>
+               <span><h2 class="colorText">Choose the color: </h2></span>
+               <div id="colorpickercage"><input type="color" value="#000000" id="colorpicker"></div>
+                
+                <span><h2 class="summerText">The summer is here!</h2></span>
+                <button id="summerVibe">Summer!</button>
+                <label for="menu" id="menuu">
                 </label>
                 
 

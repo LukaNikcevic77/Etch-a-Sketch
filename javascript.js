@@ -2,10 +2,6 @@ const div = document.createElement("div");
 const summer = ["#0dafae", "#008284", "#094b4b", "#e8c4be", "#ac8885"];
 
 const graph = document.querySelector(".board");
-const button16 = document.getElementById("16squares");
-const button32 = document.getElementById("32squares");
-const button8 = document.getElementById("8squares");
-const button100 = document.getElementById("100squares");
 const buttonsummer = document.getElementById("summerVibe");
 const colorpicker = document.getElementById("colorpicker");
 const sizemenu = document.getElementById("menu");
